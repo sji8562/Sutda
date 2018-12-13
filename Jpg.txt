@@ -1,0 +1,68 @@
+package Sutda;
+
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+
+public class Jpg {
+	private Image allcard_img; // 카드 뭉치
+	private Image hide_img; // 뒷면
+	private Image card_img[] = new Image[4]; // 앞면
+	private Image betMoney1_image; // 동전
+	private Image betMoney2_image; // 지폐
+
+	public Jpg() {
+
+	}
+
+	public Image getAllcard_img() {
+		return allcard_img;
+	}
+
+	public void setAllcard_img(Image allcard_img) {
+		allcard_img = Toolkit.getDefaultToolkit().getImage("화투뭉치.jpg"); // 화투뭉치 호출
+		this.allcard_img = allcard_img;
+	}
+
+	public Image getHide_img() {
+		return hide_img;
+	}
+
+	public void setHide_img(Image hide_img) {
+		hide_img = Toolkit.getDefaultToolkit().getImage("뒷면.jpg"); // 카드뒷면 호출
+		this.hide_img = hide_img;
+	}
+
+	public Image[] getCard_img() {
+		return card_img;
+	}
+
+	public void setCard_img(Image[] card_img) {
+		// 2명에게 줄 카드 4장 불러오기.(섯다는 20장중 4장만 사용함.)
+		int random_num_Array[] = new int[20];
+		for (int i = 0; i < 10; i++) {
+			card_img[i] = Toolkit.getDefaultToolkit().getImage("" + random_num_Array[i] + ".jpg");
+		}
+		this.card_img = card_img;
+	}
+
+	public Image getBetMoney1_image() {
+
+		return betMoney1_image;
+	}
+
+	public Image getBetMoney2_image() {
+
+		return betMoney2_image;
+	}
+
+	public void setBetMoney1_image(Image betMoney1_image) {
+		betMoney1_image = Toolkit.getDefaultToolkit().getImage("동전.jpg");// 동전호출
+		this.betMoney1_image = betMoney1_image;
+	}
+
+	public void setBetMoney2_image(Image betMoney2_image) {
+		betMoney2_image = Toolkit.getDefaultToolkit().getImage("지폐.jpg");// 지폐호출
+		this.betMoney2_image = betMoney2_image;
+	}
+}
